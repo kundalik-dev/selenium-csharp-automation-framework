@@ -20,6 +20,7 @@ packages/
 # Test Results
 TestResults/
 *.trx
+Screenshots/
 
 # Rider
 .idea/
