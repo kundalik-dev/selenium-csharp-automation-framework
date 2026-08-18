@@ -1,0 +1,56 @@
+# Build results
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.so
+*.dylib
+
+# Visual Studio cache/options
+.vs/
+.vscode/
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# Test Results
+TestResults/
+*.trx
+
+# Rider
+.idea/
+*.sln.iml
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Local environment variables
+.env
+local.settings.json
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE extensions
+*.swp
+*.swo
+*~
+
+# Node modules (if applicable)
+node_modules/
+
+# Config overrides
+config.local.json
