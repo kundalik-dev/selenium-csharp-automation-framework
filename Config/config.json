@@ -1,0 +1,7 @@
+{
+  "BaseUrl": "https://www.saucedemo.com/",
+  "Browser": "chrome",
+  "Headless": false,
+  "ImplicitWaitSeconds": 5,
+  "ExplicitWaitSeconds": 10
+}
