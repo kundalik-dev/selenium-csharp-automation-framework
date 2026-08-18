@@ -69,8 +69,11 @@ namespace selenium_csharp_automation_framework.Tests
             var loginPage = new LoginPage(Driver, Wait);
             loginPage.Login("invalid_user", "invalid_password");
 
-            Assert.That(loginPage.IsErrorDisplayed(), Is.True, "Error container should be displayed.");
-            Assert.That(loginPage.GetErrorMessage(), Is.Not.Empty, "Error container should contain an error message.");
+            Assert.Multiple(() =>
+            {
+                Assert.That(loginPage.IsErrorDisplayed(), Is.True, "Error container should be displayed.");
+                Assert.That(loginPage.GetErrorMessage(), Is.Not.Empty, "Error container should contain an error message.");
+            });
         }
 
         // LOGIN-UI-05: Should login with valid credentials.
@@ -91,8 +94,11 @@ namespace selenium_csharp_automation_framework.Tests
             var loginPage = new LoginPage(Driver, Wait);
             loginPage.Login("locked_out_user", "secret_sauce");
 
-            Assert.That(loginPage.IsErrorDisplayed(), Is.True);
-            Assert.That(loginPage.GetErrorMessage(), Does.Contain("Sorry, this user has been locked out."));
+            Assert.Multiple(() =>
+            {
+                Assert.That(loginPage.IsErrorDisplayed(), Is.True);
+                Assert.That(loginPage.GetErrorMessage(), Does.Contain("Sorry, this user has been locked out."));
+            });
         }
 
         // LOGIN-UI-07: Should display an error message when an invalid username is entered.
@@ -102,8 +108,11 @@ namespace selenium_csharp_automation_framework.Tests
             var loginPage = new LoginPage(Driver, Wait);
             loginPage.Login("invalid_user", "secret_sauce");
 
-            Assert.That(loginPage.IsErrorDisplayed(), Is.True);
-            Assert.That(loginPage.GetErrorMessage(), Does.Contain("Username and password do not match any user in this service"));
+            Assert.Multiple(() =>
+            {
+                Assert.That(loginPage.IsErrorDisplayed(), Is.True);
+                Assert.That(loginPage.GetErrorMessage(), Does.Contain("Username and password do not match any user in this service"));
+            });
         }
 
         // LOGIN-UI-08: Should display an error message when an invalid password is entered.
@@ -113,8 +122,11 @@ namespace selenium_csharp_automation_framework.Tests
             var loginPage = new LoginPage(Driver, Wait);
             loginPage.Login("standard_user", "wrong_password");
 
-            Assert.That(loginPage.IsErrorDisplayed(), Is.True);
-            Assert.That(loginPage.GetErrorMessage(), Does.Contain("Username and password do not match any user in this service"));
+            Assert.Multiple(() =>
+            {
+                Assert.That(loginPage.IsErrorDisplayed(), Is.True);
+                Assert.That(loginPage.GetErrorMessage(), Does.Contain("Username and password do not match any user in this service"));
+            });
         }
 
         // LOGIN-UI-09: Should clear the error message when clicking the close X button.
